@@ -36,6 +36,25 @@
 			return $this->exec();
 		}
 
+		public function getWhere($table, $cols, $where, $param = ""){
+			$this->sql = "SELECT ";
+			$i = 0;
+			foreach($cols as $value){
+				$i++;
+				$this->sql .= $value;
+				if($i < count($cols)) $this->sql .= ", ";
+			}
+			$this->sql .= " FROM ". $table. " WHERE ";
+			$j = 0;
+			foreach($where as $key => $value){
+				$j++;
+				$this->sql .= $key. " = '". $value."'";
+				if($j < count($where)) $this->sql .= " AND ";
+			}
+			if(!empty($param)) $this->sql .= $param;
+			return $this->exec();
+		}
+
 
 
 		/*
