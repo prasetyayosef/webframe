@@ -20,6 +20,10 @@
 			return $this->query->getAll($this->table, $param);
 		}
 
+		public function getWhere($col, $where, $param = ""){
+			return $this->query->getAll($this->table, $col, $where, $param);
+		}
+
 		public function getAllWhere($where, $params = ""){
 			return $this->query->getAllWhere($this->table, $where, $params);
 		}
