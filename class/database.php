@@ -48,7 +48,7 @@
 			$j = 0;
 			foreach($where as $key => $value){
 				$j++;
-				$this->sql .= $key. " = ". $value;
+				$this->sql .= $key. " = '". $value."'";
 				if($j < count($where)) $this->sql .= " AND ";
 			}
 			if(!empty($param)) $this->sql .= $param;
